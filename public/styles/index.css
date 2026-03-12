@@ -3,6 +3,28 @@
     padding: 0px;
 }
 
+:root{
+    /* color theme   */
+    /* background latte theme */
+    --background-l1: #F9F8F6;
+    --background-l2:#EFE9E3 ;
+    --background-l3: #D9CFC7 ;
+    --background-l4: #C9B59C ;
+    
+    /* text color */
+    --text-dark-l1:#3C2A21; 
+    --text-dark-l2: #1A120B;
+    --text-light-l1:#D8D9DA;
+    --text-light-l2: #61677A;
+
+    /* font sizes */
+    --Card-s1: 2rem;
+    --Card-s2: 1rem;
+    --Small-Card-s1: 1rem;
+    --Small-Card-s2: 0.5rem;
+    
+
+}
 /* header section */
 header{
     height: 3rem;
@@ -40,8 +62,7 @@ div.icon{
 main.main-container{
     background-color: aqua;
     display: flex;
-    height: 100vh;
-    
+    height: calc(100vh - 48px);
 }
 
 /* Left side main navigational panel */
@@ -87,4 +108,17 @@ main.main-container{
 
 .small-card{
     background-color: cornflowerblue;
+}
+
+
+/* Footer section */
+
+footer{
+    height: 5rem;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light-l2);
+    background-color: var(--background-l2);
 }
