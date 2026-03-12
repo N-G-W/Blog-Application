@@ -42,6 +42,7 @@ div.logo{
     text-align: center;
     max-width: 200px;
     font-family: var(--montserrat);
+    font-size: 1.5rem;
 }
 /* Semiboold logo */
 span.semi{
@@ -94,6 +95,7 @@ main.main-container{
     gap: 1rem;
     padding: 1rem;
     background-color: coral;
+    font-family: var(--roboto);
 }
 
 .panel-buttons>img{
