@@ -18,7 +18,7 @@
     --text-light-l2: #61677A;
 
     /* font sizes */
-    --Card-s1: 2rem;
+    --Card-s1: 1.5rem;
     --Card-s2: 1rem;
     --Small-Card-s1: 1rem;
     --Small-Card-s2: 0.5rem;
@@ -113,9 +113,94 @@ main.main-container{
     padding: 0% 5%; */
 }
 /* card */
+.card-container{
+    width: 70%;
+    margin: 0% auto;
+}
 .card{
     background-color: chocolate;
-    margin: 2% 5%;
+    margin: 2% 0%;
+    padding: 1rem;
+    display: flex;
+    
+}
+.card-content-container{
+    flex: 3;
+    background-color: #3C2A21;
+    display: flex;
+    flex-direction: column;
+}
+
+.pfp-name-container{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+.pfp{
+    /* border-radius: 50%;s */
+    width: 1.5rem;
+    background-color: #1A120B;
+}
+
+.pfp-name{
+    font-family: var(--roboto);
+    word-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
+    font-size: var(--Card-s2);
+}
+
+.card-title{
+    font-family: var(--montserrat);
+    font-size: var(--Card-s1);
+    font-weight: 800;
+    margin: 0rem 0rem 0.5rem 1rem;
+}
+
+.card-subtitle{
+    font-family: var(--montserrat);
+    font-size: var(--Card-s2);
+    margin: 0rem 0rem 0.5rem 1rem;
+}
+
+.card-buttons-container{
+    display: flex;
+}
+
+.left, .right{
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.left{
+    justify-content: start;
+}
+
+.right{
+    justify-content: right;
+}
+
+.card-button>img{
+    width: 1.5rem;
+    height: auto;
+}
+
+.card-image {
+    flex: 1;
+    background-color: #1A120B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    object-fit:contain;
+}
+
+.card-image>img{
+    height: 50%;
 }
 /* right side recommendation panel for the smaller cards */
 .recommendation-panel{
