@@ -1,107 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SemiBold</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/index.css" />
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon" />
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <span class="semi">Semi</span><span class="bold">Bold</span>
-      </div>
-      <div class="search-bar">SearchBar</div>
-      <div class="icons">
-        <div class="icon">Icon</div>
-        <div class="icon">Icon</div>
-        <div class="icon">Icon</div>
-        <div class="icon">Icon</div>
-      </div>
-    </header>
-    <main class="main-container">
-      <div class="side-panel">
-        <div class="panel-buttons">
-          <img src="icons/house.svg" alt="house" /> Home
-        </div>
-        <div class="panel-buttons">
-          <img src="icons/person.svg" alt="person" /> Profile
-        </div>
-        <div class="panel-buttons">
-          <img src="icons/pen.svg" alt="Pen" /> Write
-        </div>
-        <div class="panel-buttons">
-          <img src="icons/collection.svg" alt="page" /> Collection
-        </div>
-      </div>
-      <div class="main-content">
-        <div class="card-container">
-          <div class="card">
-            <div class="card-content-container">
-              <div class="pfp-name-container">
-                <img src="icons/favicon.png" alt="" class="pfp" />
-                <div class="pfp-name">John Doe</div>
-              </div>
-              <div class="card-title">Oh no! Something Obvious !!??</div>
-              <div class="card-subtitle">
-                I did a thing. Then did another thing.
-              </div>
-              <div class="card-buttons-container">
-                <div class="left">
-                  <div class="card-button">
-                    <img src="icons/favicon.png" alt="icon" />
-                  </div>
-                  <div class="card-button">
-                    <img src="icons/favicon.png" alt="icon" />
-                  </div>
-                  <div class="card-button">
-                    <img src="icons/favicon.png" alt="icon" />
-                  </div>
-                </div>
-                <div class="right">
-                  <div class="card-button">
-                    <img src="icons/favicon.png" alt="icon" />
-                  </div>
-                  <div class="card-button">
-                    <img src="icons/favicon.png" alt="icon" />
-                  </div>
-                  <div class="card-button">
-                    <img src="icons/favicon.png" alt="icon" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-image">
-              <img src="icons/favicon.png" alt="" class="card" />
-            </div>
+<%- include("partials/header.ejs") %>
+
+<main class="main-container">
+  <div class="side-panel">
+    <div class="panel-buttons">
+      <img src="icons/house.svg" alt="house" /> Home
+    </div>
+    <div class="panel-buttons">
+      <img src="icons/person.svg" alt="person" /> Profile
+    </div>
+    <div class="panel-buttons"><img src="icons/pen.svg" alt="Pen" /> Write</div>
+    <div class="panel-buttons">
+      <img src="icons/collection.svg" alt="page" /> Collection
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="card-container">
+      <div class="card">
+        <div class="card-content-container">
+          <div class="pfp-name-container">
+            <img src="icons/favicon.png" alt="" class="pfp" />
+            <div class="pfp-name">John Doe</div>
           </div>
-        </div>
-      </div>
-      <div class="recommendation-panel">
-        <div class="small-card">
-          <div class="small-card-content-container">
-            <div class="pfp-name-container">
-              <img src="icons/favicon.png" alt="" class="pfp" />
-              <div class="pfp-name">John Doe</div>
+          <div class="card-title">Oh no! Something Obvious !!??</div>
+          <div class="card-subtitle">
+            I did a thing. Then did another thing.
+          </div>
+          <div class="card-buttons-container">
+            <div class="left">
+              <div class="card-button">
+                <img src="icons/favicon.png" alt="icon" />
+              </div>
+              <div class="card-button">
+                <img src="icons/favicon.png" alt="icon" />
+              </div>
+              <div class="card-button">
+                <img src="icons/favicon.png" alt="icon" />
+              </div>
             </div>
-            <div class="small-card-title">Oh no! Something Obvious !!??</div>
-            <div class="card-buttons-container">
-              <div class="small-card-button">
+            <div class="right">
+              <div class="card-button">
+                <img src="icons/favicon.png" alt="icon" />
+              </div>
+              <div class="card-button">
+                <img src="icons/favicon.png" alt="icon" />
+              </div>
+              <div class="card-button">
                 <img src="icons/favicon.png" alt="icon" />
               </div>
             </div>
           </div>
         </div>
+        <div class="card-image">
+          <img src="icons/favicon.png" alt="" class="card" />
+        </div>
       </div>
-    </main>
+    </div>
+  </div>
+  <div class="recommendation-panel">
+    <div class="small-card">
+      <div class="small-card-content-container">
+        <div class="pfp-name-container">
+          <img src="icons/favicon.png" alt="" class="pfp" />
+          <div class="pfp-name">John Doe</div>
+        </div>
+        <div class="small-card-title">Oh no! Something Obvious !!??</div>
+        <div class="card-buttons-container">
+          <div class="small-card-button">
+            <img src="icons/favicon.png" alt="icon" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
-    <footer>© SemiBold 2026</footer>
-  </body>
-</html>
+<%- include("partials/footer.ejs") %>
