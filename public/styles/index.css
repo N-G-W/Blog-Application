@@ -217,6 +217,18 @@ main.main-container{
     background-color: cornflowerblue;
 }
 
+.small-card-title {
+    font-family: var(--montserrat);
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 0rem 0rem 0.5rem 1rem;
+}
+
+.small-card-button>img{
+    width: 1.5rem;
+    margin: 0rem 1rem;
+}
+
 
 /* Footer section */
 
