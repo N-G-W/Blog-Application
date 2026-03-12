@@ -88,10 +88,18 @@ main.main-container{
 
 /* panel buttons */
 .panel-buttons{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
     padding: 1rem;
     background-color: coral;
 }
 
+.panel-buttons>img{
+    height: 1.5rem;
+    margin-left: 1rem ;
+}
 /* cneter section of the main content */
 .main-content{
     background-color: brown;
