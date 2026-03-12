@@ -1,0 +1,17 @@
+{
+  "name": "blog-application",
+  "version": "1.0.0",
+  "description": "A simple blog application that uses Node.js, Express.js and Ejs to create a blog application.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}
