@@ -32,6 +32,7 @@ header{
     height: 4rem;
     padding: 0rem;
     background-color: var(--background-l2);
+    border: 1px solid var(--background-l3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,12 +76,13 @@ div.icon{
 main.main-container{
     /* background-color: aqua; */
     display: flex;
-    height: calc(100vh - 48px);
+    height: 100%;
 }
 
 /* Left side main navigational panel */
 .side-panel{
-    background-color: var(--background-l3);
+    background-color: var(--background-l2);
+    border: 1px solid var(--background-l3);
     flex:2;
     display: flex;
     flex-direction: column;
@@ -95,7 +97,9 @@ main.main-container{
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background-color: var(--background-l3);
+    background-color: var(--background-l2);
+    border-left: 5px solid var(--background-l4) ;
+    margin-left: 5px;
     font-family: var(--roboto);
 }
 
@@ -119,15 +123,17 @@ main.main-container{
     margin: 2rem auto;
 }
 .card{
-    background-color: var(--background-l2);
-    margin: 2% 0%;
+    /* background-color: var(--background-l2); */
+    /* border-top: 1px solid var(--background-l3); */
+    border-bottom: 1px solid var(--background-l3);
+    /* margin: 2% 0%; */
     padding: 1rem;
     display: flex;
     
 }
 .card-content-container{
     flex: 3;
-    background-color: var(--background-l4);
+    /* background-color: var(--background-l4); */
     display: flex;
     flex-direction: column;
 }
@@ -143,7 +149,7 @@ main.main-container{
 .pfp{
     /* border-radius: 50%;s */
     width: 1.5rem;
-    background-color: var(--background-l4);
+    /* background-color: var(--background-l4); */
 }
 
 .pfp-name{
@@ -192,7 +198,7 @@ main.main-container{
 
 .card-image {
     flex: 1;
-    background-color: var(--background-l4);
+    /* background-color: var(--background-l4); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,18 +211,21 @@ main.main-container{
 }
 /* right side recommendation panel for the smaller cards */
 .recommendation-panel{
-    background-color: var(--background-l3);
+    background-color: var(--background-l2);
+    border: 1px solid var(--background-l3);
     flex: 3;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
     padding-top: 3rem;
 }
 
 /* smaller card */
 
 .small-card{
-    background-color: var(--background-l4);
+    background-color: var(--background-l1);
+    border-bottom: 1px solid var(--background-l3);
+    /* border-bottom: 1px solid var(--background-l4); */
 }
 
 .small-card-title {
