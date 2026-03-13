@@ -1,0 +1,69 @@
+<%- include("partials/header.ejs") %> <%- include("partials/panel.ejs") %>
+<div class="article-container">
+  <div class="article">
+    <div class="article-heading">
+      Some Compelling and slightly confusing heading that may or may not be
+      debatable.
+    </div>
+    <div class="article-subheading">Some vague and random subtitle.</div>
+    <div class="article-name-etc">
+      <div class="pfp-name-container">
+        <img src="icons/favicon.png" alt="" class="pfp" />
+        <div class="pfp-name">John Doe</div>
+      </div>
+    </div>
+    <div class="article-buttons-section">
+      <div class="card-buttons-container">
+        <div class="left">
+          <div class="card-button">
+            <img src="icons/favicon.png" alt="icon" />
+          </div>
+          <div class="card-button">
+            <img src="icons/favicon.png" alt="icon" />
+          </div>
+          <div class="card-button">
+            <img src="icons/favicon.png" alt="icon" />
+          </div>
+        </div>
+        <div class="right">
+          <div class="card-button">
+            <img src="icons/favicon.png" alt="icon" />
+          </div>
+          <div class="card-button">
+            <img src="icons/favicon.png" alt="icon" />
+          </div>
+          <div class="card-button">
+            <img src="icons/favicon.png" alt="icon" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-image">
+      <img src="images/random.jpg" alt="image" class="image-contract" />
+    </div>
+    <p class="article-paragraph-normal">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi possimus
+      sed nisi impedit esse temporibus nesciunt ullam repudiandae dignissimos
+      similique.
+    </p>
+    <p class="article-paragraph-bold">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate
+      voluptas vitae consequuntur autem non fuga, iste recusandae nostrum
+      delectus praesentium?
+    </p>
+  </div>
+</div>
+<script>
+  const image = document.querySelector(".article-image>img");
+  image.addEventListener("click", function () {
+    if (image.classList.contains("image-expand")) {
+      image.classList.remove("image-expand");
+      image.classList.add("image-contract");
+    } else {
+      image.classList.add("image-expand");
+      image.classList.remove("image-contract");
+    }
+  });
+</script>
+<%-include("partials/footer.ejs") %>
