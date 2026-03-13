@@ -260,15 +260,29 @@ main.main-container{
 
 
 /* Footer section */
+.footer-fixed-parent{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
 
 footer{
     height: 5rem;
-    display: flex;
     text-align: center;
+    display: flex;
     justify-content: center;
     align-items: center;
     color: var(--text-light-l2);
     background-color: var(--background-l2);
     z-index: 2;
     border-top: 1px solid var(--background-l3);
+}
+
+/* article reading section */
+
+.article-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100%;
 }
