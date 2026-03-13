@@ -11,6 +11,11 @@ app.get("/", (req, res) => {
     res.render("writing.ejs");
 })
 
+app.post("/publish-blog", (req, res) => {
+    console.log(req.body['title']);
+    res.send("hello");
+})
+
 app.listen(port, () => {
     console.log(`Running the server on port : ${port}`);
 })
