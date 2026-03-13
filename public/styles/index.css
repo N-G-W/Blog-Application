@@ -486,3 +486,20 @@ div.image-picker-container{
     visibility: hidden;
 }
 
+
+/* submit button */
+div.submit-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+input[type="submit"]{
+    padding: 1rem 2rem;
+    font-family: var(--montserrat);
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: var(--background-l4);
+    color: var(--background-l1);
+    border-radius: 1rem;
+    border: none;
+}
