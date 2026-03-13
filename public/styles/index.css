@@ -294,7 +294,7 @@ footer{
     display: flex;
     flex-direction: column;
     width: 60%;
-    border: #1A120B 1px solid;
+    /* border: #1A120B 1px solid; */
     margin: auto;
     padding: 5rem 2rem;
 }
@@ -337,6 +337,11 @@ footer{
     margin: 0px;
 }
 
+.article-buttons-section{
+    border-top: 1px solid var(--background-l2);
+    border-bottom: 1px solid var(--background-l2);
+    margin: 1rem 0rem;
+}
 .article-buttons-section>.card-buttons-container>*{
     padding: 0px;
     margin: 1rem 0rem;
@@ -347,12 +352,12 @@ p.article-paragraph-normal{
     font-family: var(--lora);
     font-weight: normal;
     font-size: 1.3rem;
-    padding: 0.2rem 0rem;
+    padding: 1.3rem 0rem;
 }
 
 p.article-paragraph-bold {
     font-family: var(--lora);
     font-weight: bold;
     font-size: 1.3rem;
-    padding: 0.2rem 0rem;
+    padding: 1.3rem 0rem;
 }
