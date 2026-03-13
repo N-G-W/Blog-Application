@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+<div class="writing-section">
+  <form
+    action="/publish-blog"
+    enctype="multipart/form-data"
+    class="blog-writing"
+    method="post"
+    target="_parent"
+  >
+    <input type="text" name="title" class="heading" placeholder="Title..." />
+    <input
+      type="text"
+      name="title"
+      class="subheading"
+      placeholder="Subtitle..."
+    />
+    <input
+      type="text"
+      name="title"
+      class="content"
+      placeholder="Tell your story..."
+    />
+    <input type="file" name="file" />
+  </form>
+</div>
+<%- include("partials/footer.ejs") %>

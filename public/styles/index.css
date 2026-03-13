@@ -361,3 +361,75 @@ p.article-paragraph-bold {
     font-size: 1.3rem;
     padding: 1.3rem 0rem;
 }
+
+/* Writing section */
+.writing-section{
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+    /* background-color: #1A120B; */
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.writing-section>form{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.writing-section>form> input.heading{
+    height: 5rem;
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    color: var(--text-dark-l2);
+    font-family: var(--lora);
+    font-size: 3rem;
+    font-weight: 600;
+    border-left: 1px solid var(--text-light-l1);
+    
+}
+.writing-section>form>input.heading:visited:focus{
+    border-left: 1px solid var(--text-light-l1);
+    color: var(--text-dark-l2);
+}
+.writing-section>form>input.subheading {
+    height: 2rem;
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    color: var(--text-light-l2);
+    font-family: var(--lora);
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-left: 1px solid var(--text-light-l1);
+
+}
+
+.writing-section>form>input.subheading:visited:focus {
+    border-left: 1px solid var(--text-light-l1);
+    color: var(--text-dark-l2);
+}
+
+.writing-section>form>input.content {
+    height: 1.5rem;
+    border: none;
+    outline: none;
+    padding: 0.5rem 2rem;
+    color: var(--text-dark-l2);
+    font-family: var(--lora);
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-left: 1px solid var(--text-light-l1);
+
+}
+
+.writing-section>form>input.content:visited:focus {
+    border-left: 1px solid var(--text-light-l1);
+    color: var(--text-dark-l2);
+}
