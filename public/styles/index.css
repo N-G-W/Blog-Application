@@ -42,7 +42,6 @@ div.fixed-container{
     position: fixed;
     width: 200px;
     height: 100%;
-    z-index: -1;
 }
 
 header{
@@ -120,6 +119,8 @@ main.main-container{
     border-left: 5px solid var(--background-l4) ;
     margin-left: 5px;
     font-family: var(--roboto);
+    z-index: 10;
+    pointer-events: all;
 }
 
 .panel-buttons>img{
