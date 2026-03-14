@@ -16,3 +16,23 @@
     </div>
   </div>
 </div>
+
+<script>
+  let buttons = document.querySelectorAll(".panel-buttons");
+  buttons = Array.from(buttons);
+  buttons[0].classList.add("panel-button-left-border");
+  buttons.forEach((element) => {
+    element.addEventListener("click", () => {
+      let otherButtons = document.querySelectorAll(".panel-buttons");
+      otherButtons = Array.from(otherButtons);
+      otherButtons.forEach((button) => {
+        if (element.isSameNode(button)) {
+          button.classList.add("panel-button-left-border");
+        } else {
+          button.classList.remove("panel-button-left-border");
+        }
+      });
+    });
+  });
+  console.log(buttons);
+</script>

@@ -131,13 +131,17 @@ main.main-container{
     gap: 1rem;
     padding: 1rem;
     background-color: var(--background-l2);
-    border-left: 5px solid var(--background-l4) ;
-    margin-left: 5px;
+    
+    /* margin-left: 5px; */
     font-family: var(--roboto);
     /* z-index: 10; */
     pointer-events: all;
 }
 
+.panel-button-left-border{
+    border-left: 10px solid var(--background-l4);
+    background-color: var(--background-l3);
+}
 .panel-buttons>img{
     height: 1.5rem;
     margin-left: 1rem ;
