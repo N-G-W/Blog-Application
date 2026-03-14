@@ -464,7 +464,7 @@ input[type="file"] {
 
 div.image-picker-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 label[for="file"] {
@@ -472,7 +472,7 @@ label[for="file"] {
     border: 5px dashed var(--text-dark-l1);
     border-radius: 2rem;
     text-align: center;
-    padding: 5rem;
+    padding: 10rem;
     font-family: var(--roboto);
     font-size: large;
     font-weight: 800;
@@ -488,9 +488,7 @@ label[for="file"]:active {
     opacity: 80%;
 }
 
-div.image-picker-container{
-    width: 100%;
-}
+
 /* for little notch */
 .writing-section>form>div>span.image-picker-button{
     border-radius: 50%;
