@@ -106,9 +106,24 @@ main.main-container{
     padding-top: 2rem;
     margin-top: 4rem;
     height: 100%;
+    /* z-index: -10; */
 }
 
 /* panel buttons */
+.panel-link,.panel-link:focus:visited{
+    text-decoration: none;
+    color: var(--text-dark-l2);
+    outline: 0;
+}
+.panel-link:hover, .panel-buttons:hover{
+    background-color: var(--background-l3);
+    cursor: pointer;
+}
+.panel-link:active,
+.panel-buttons:active {
+    opacity: 70%;
+}
+
 .panel-buttons{
     display: flex;
     justify-content: start;
@@ -119,7 +134,7 @@ main.main-container{
     border-left: 5px solid var(--background-l4) ;
     margin-left: 5px;
     font-family: var(--roboto);
-    z-index: 10;
+    /* z-index: 10; */
     pointer-events: all;
 }
 
