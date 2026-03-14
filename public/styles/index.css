@@ -509,6 +509,13 @@ div.image-picker-container{
 
 /* submit button */
 div.submit-button{
+    position: fixed;
+    bottom: 1rem;
+    width: inherit;
+    margin-left: -3rem;
+}
+
+.submit-button>.center{
     display: flex;
     justify-content: center;
     margin-top: 3rem;

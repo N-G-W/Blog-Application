@@ -15,9 +15,15 @@ app.get("/write-blog", (req, res) => {
     res.render("writing.ejs");
 })
 
+app.get("/read-blog", (req, res) => {
+    res.render("reading.ejs");
+})
+
 app.post("/publish-blog", (req, res) => {
-    console.log(req.body['title']);
-    res.send("hello");
+    // console.log(req);
+    let fileInformation = req.body['file'];
+    console.log(fileInformation);
+    res.redirect("read-blog");
 })
 
 app.listen(port, () => {
