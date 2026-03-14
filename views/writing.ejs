@@ -23,6 +23,24 @@
         placeholder="Tell your story..."
       />
     </div>
+    <div class="content">
+      <span class="image-picker-button">+</span>
+      <input
+        type="text"
+        name="content"
+        class="content"
+        placeholder="Tell your story..."
+      />
+    </div>
+    <div class="content">
+      <span class="image-picker-button">+</span>
+      <input
+        type="text"
+        name="content"
+        class="content"
+        placeholder="Tell your story..."
+      />
+    </div>
 
     <!-- <div class="image-picker-container">
       <label for="file"> Please pick an image! </label>
@@ -60,22 +78,43 @@
   const textInputs = Array.from(textInputsList);
   // const imagePicker = document.querySelector("div.image-picker-container");
   const imagePicker = createImagePicker();
-  console.log(textInputs);
+  console.log("This is the textinputs", textInputs);
   textInputs.forEach((element) => {
     element.addEventListener("click", function () {
-      console.log(element.previousSibling.previousSibling);
-      element.previousSibling.previousSibling.style = "visibility: visible;";
+      console.log(
+        element.parentElement.firstElementChild.style.visibility,
+        "this is the visibility",
+      );
+      if (
+        element.parentElement.firstElementChild.classList.contains(
+          "image-picker-button-hide",
+        )
+      ) {
+        element.parentElement.firstElementChild.classList.remove(
+          "image-picker-button-hide",
+        );
+      } else {
+        element.parentElement.firstElementChild.classList.add(
+          "image-picker-button-hide",
+        );
+      }
     });
   });
   textInputs.forEach((element) => {
     console.log(element.previousSibling);
-    element.previousSibling.addEventListener("click", function () {
-      console.log(element.parentElement.firstChild.isEqualNode(imagePicker));
-      if (element.parentElement.firstChild.isEqualNode(imagePicker)) {
-        element.parentElement.removeChild(imagePicker);
-      } else {
-        element.parentElement.appendChild(imagePicker);
-      }
-    });
+    element.parentElement.firstElementChild.addEventListener(
+      "click",
+      function () {
+        console.log(element.parentElement.nextElementSibling);
+        if (element.parentElement.nextElementSibling.isEqualNode(imagePicker)) {
+          element.parentElement.nextElementSibling.remove();
+        } else {
+          element.parentElement.parentElement.insertBefore(
+            imagePicker,
+            element.parentElement.nextElementSibling,
+          );
+        }
+      },
+    );
   });
 </script>

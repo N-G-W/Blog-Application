@@ -499,11 +499,11 @@ div.image-picker-container{
     border: 1px solid var(--text-dark-l2);
     /* width: 1rem;
     height: 1rem; */
-    visibility: visible;
+    visibility: hidden;
 }
 
-.writing-section>form>div>span.image-picker-button{
-    visibility: hidden;
+.writing-section>form>div>span.image-picker-button-hide{
+    visibility: visible;
 }
 
 
