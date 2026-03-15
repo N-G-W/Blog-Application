@@ -19,10 +19,24 @@ app.get("/read-blog", (req, res) => {
     res.render("reading.ejs");
 })
 
+var imagePathArrays = [];
+
 app.post("/publish-blog", (req, res) => {
     // console.log(req);
     let fileInformation = req.body['file'];
-    console.log(fileInformation);
+    console.log(req.body);
+    imagePathArrays = [];
+    if (req.body['file'] !== undefined) {
+        if (typeof (fileInformation) === "array") {
+            fileInformation.forEach(element => {
+                imagePathArrays.push(URL.createObjectURL(element));
+            });
+        }
+        else {
+            imagePathArrays.push(req.body['file']);
+        }
+    }
+    console.log(imagePathArrays);
     res.redirect("read-blog");
 })
 

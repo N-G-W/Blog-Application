@@ -298,9 +298,9 @@ footer{
     align-items: center;
     color: var(--text-light-l2);
     background-color: var(--background-l2);
-    z-index: 2;
+    /* z-index: -100; */
     border-top: 1px solid var(--background-l3);
-    visibility: collapse;
+    visibility: hidden;
 }
 
 /* article reading section */
@@ -393,6 +393,7 @@ p.article-paragraph-bold {
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    margin-bottom: 10rem;
 }
 
 .writing-section>form{
@@ -465,6 +466,38 @@ input[type="file"] {
 div.image-picker-container{
     display: flex;
     flex-direction: column;
+    animation-name: grow-from-zero;
+    animation-timing-function: ease-in;
+    animation-duration: 200ms;
+    animation-iteration-count: 1;
+}
+
+@keyframes grow-from-zero{
+    from{
+        transform: scale(0);
+    }
+
+    to{
+        transform: scale(1);
+    }
+}
+
+.shrink-down-animation{
+    animation-name: shrink-down;
+    animation-timing-function: ease-in;
+    animation-duration: 200ms;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
+}
+
+@keyframes shrink-down {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
 }
 
 label[for="file"] {
@@ -511,6 +544,7 @@ div.submit-button{
     bottom: 1rem;
     width: inherit;
     margin-left: -3rem;
+    z-index: 100;
 }
 
 .submit-button>.center{
