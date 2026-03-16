@@ -92,7 +92,7 @@ div.icon{
 main.main-container{
     /* background-color: aqua; */
     display: flex;
-    height: 100%;
+    min-height: max(100%, 100vh);
 }
 
 /* Left side main navigational panel */
