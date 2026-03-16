@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import {writeFile,stat,mkdir} from "node:fs";
 import { Buffer } from "node:buffer";
+import path from "path";
 
 // const upload = multer({ dest: 'user-uploads/' })
 const storage = multer.diskStorage({
@@ -71,13 +72,14 @@ app.post("/publish-blog", upload.single('file'), (req, res) => {
         }
     }
     articleContent.push(articleFactory(
+        Math.floor(Math.random()*1e9),
         req.body['title'],
         req.body['subtitle'],
         req.body['content'],
         req.file['path'],
     ))
-
-    writeFile("pseudo-persistance/text-db.txt", Buffer.from(articleContent), (err) => {
+    
+    writeFile("./pseudo-persistance/text-db.txt", JSON.stringify(articleContent), 'utf8', (err) => {
         if (err) {
             console.log(err);
             throw err;
