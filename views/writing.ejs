@@ -58,7 +58,12 @@
   }
 </script>
 <div class="writing-section">
-  <form action="/publish-blog" class="blog-writing" method="post">
+  <form
+    action="/publish-blog"
+    class="blog-writing"
+    method="post"
+    enctype="multipart/form-data"
+  >
     <div class="heading">
       <span class="image-picker-button">+</span
       ><input type="text" name="title" class="heading" placeholder="Title..." />

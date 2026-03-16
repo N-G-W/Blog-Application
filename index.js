@@ -1,4 +1,27 @@
 import express from "express";
+import multer from "multer";
+import {writeFile,stat,mkdir} from "node:fs";
+import { Buffer } from "node:buffer";
+
+// const upload = multer({ dest: 'user-uploads/' })
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './user-uploads/')
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      console.log("This is the dir that is being not created", "./" + uniqueSuffix + "/");
+      mkdir("./user-uploads/"+ uniqueSuffix + "/", (e) => {
+        if (e) {
+            console.log("wwtff");
+            throw e
+        };
+    });
+    cb(null, uniqueSuffix + "/" + uniqueSuffix + file.originalname);
+  }
+})
+
+const upload = multer({ storage: storage })
 
 var app = express();
 const port = 3000;
@@ -20,13 +43,24 @@ app.get("/read-blog", (req, res) => {
 })
 
 var imagePathArrays = [];
+var articleContent = [];
 
-app.post("/publish-blog", (req, res) => {
-    // console.log(req);
-    let fileInformation = req.body['file'];
-    console.log(req.body);
+function articleFactory(id='',title = '', subtitle = '', content = '', imagePaths = '') {
+    return {
+        articleID: id,
+        title: title,
+        subtitle: subtitle,
+        content: content,
+        paths: imagePaths,
+    }
+}
+
+app.post("/publish-blog", upload.single('file'), (req, res) => {
+
     imagePathArrays = [];
-    if (req.body['file'] !== undefined) {
+
+    console.log(req.file, req.body);
+    if (req.file !== undefined) {
         if (typeof (fileInformation) === "array") {
             fileInformation.forEach(element => {
                 imagePathArrays.push(URL.createObjectURL(element));
@@ -36,7 +70,21 @@ app.post("/publish-blog", (req, res) => {
             imagePathArrays.push(req.body['file']);
         }
     }
-    console.log(imagePathArrays);
+    articleContent.push(articleFactory(
+        req.body['title'],
+        req.body['subtitle'],
+        req.body['content'],
+        req.file['path'],
+    ))
+
+    writeFile("pseudo-persistance/text-db.txt", Buffer.from(articleContent), (err) => {
+        if (err) {
+            console.log(err);
+            throw err;
+        };
+        console.log("File has been saved successfully!");
+    })
+    console.log(articleContent);
     res.redirect("read-blog");
 })
 
