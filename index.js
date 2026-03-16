@@ -53,6 +53,7 @@ function readArticleData(req,res,next) {
 app.use(readArticleData);
 
 app.get("/", (req, res) => {
+    res.locals.articleContent = articleContent;
     res.render("index.ejs");
 })
 
