@@ -8,7 +8,8 @@
   <div class="main-content">
     <div class="card-container">
       
-      <div class="card">
+      <a href=<%= `/read-blog?id=${article["articleID"]}` %>>
+        <div class="card">
         <div class="card-content-container">
           <div class="pfp-name-container">
             <img src="icons/person.svg" alt="" class="pfp" />
@@ -47,6 +48,7 @@
           <img src= <%= article["paths"] %> alt="" class="card" />
         </div>
       </div>
+      </a>
     </div>
   </div>
   <div class="recommendation-panel">

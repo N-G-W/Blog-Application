@@ -110,7 +110,7 @@ main.main-container{
 }
 
 /* panel buttons */
-.panel-link,.panel-link:focus:visited{
+.panel-link,.panel-link:focus:visited, a,a:focus:visited{
     text-decoration: none;
     color: var(--text-dark-l2);
     outline: 0;

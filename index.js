@@ -61,10 +61,28 @@ app.get("/write-blog", (req, res) => {
     res.render("writing.ejs");
 })
 
+function checkArticleID(id) {
+    for (const article of articleContent[0]) {
+            if (article['articleID'] == id) {
+                return [[article]];
+            }
+        }
+    return -1;
+}
 app.get("/read-blog", (req, res) => {
+    let paramID = req.query.id;
+    console.log("this is the paramid", paramID);
     console.log(articleContent);
-    res.locals.articleContent = articleContent;
-    res.render("reading.ejs");
+    let maybeArticle = checkArticleID(paramID);
+    if (maybeArticle!==-1) {
+        res.locals.articleContent = maybeArticle;
+        console.log(maybeArticle);
+        res.render("reading.ejs");
+    }
+    else {
+        res.send("<h1>There doesn't seem to be an article of this ID</h1>") ;
+    }
+    
 })
 
 
