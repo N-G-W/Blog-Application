@@ -1,14 +1,17 @@
 <%- include("partials/header.ejs") %> <%- include("partials/panel.ejs") %>
 <div class="article-container">
-  <div class="article">
+  <% if (locals.articleContent && locals.articleContent!==[]) { %>
+   <%for (const article of articleContent[0]) {%>
+    <div class="article">
     <div class="article-heading">
-      Some Compelling and slightly confusing heading that may or may not be
-      debatable.
+      <%= article['title'] %>
     </div>
-    <div class="article-subheading">Some vague and random subtitle.</div>
+    <div class="article-subheading">
+      <%= article['subtitle'] %>
+    </div>
     <div class="article-name-etc">
       <div class="pfp-name-container">
-        <img src="icons/favicon.png" alt="" class="pfp" />
+        <img src="icons/person.svg" alt="" class="pfp" />
         <div class="pfp-name">John Doe</div>
       </div>
     </div>
@@ -16,77 +19,49 @@
       <div class="card-buttons-container">
         <div class="left">
           <div class="card-button">
-            <img src="icons/favicon.png" alt="icon" />
+            <img src="icons/stars.svg" alt="icon" />
           </div>
           <div class="card-button">
-            <img src="icons/favicon.png" alt="icon" />
+            <img src="icons/hand-thumbs-up.svg" alt="icon" />
           </div>
           <div class="card-button">
-            <img src="icons/favicon.png" alt="icon" />
+            <img src="icons/chat.svg" alt="icon" />
           </div>
         </div>
         <div class="right">
           <div class="card-button">
-            <img src="icons/favicon.png" alt="icon" />
+            <img src="icons/hand-thumbs-down.svg" alt="icon" />
           </div>
           <div class="card-button">
-            <img src="icons/favicon.png" alt="icon" />
+            <img src="icons/bookmark-heart.svg" alt="icon" />
           </div>
           <div class="card-button">
-            <img src="icons/favicon.png" alt="icon" />
+            <img src="icons/three-dots.svg" alt="icon" />
           </div>
         </div>
       </div>
     </div>
 
     <div class="article-image">
-      <img src="images/random.jpg" alt="image" class="image-contract" />
+       <img src= <%= article['paths'] %> alt="image" class="image-contract" /> 
+      
     </div>
-    <p class="article-paragraph-normal">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi possimus
-      sed nisi impedit esse temporibus nesciunt ullam repudiandae dignissimos
-      similique.
+    <% for (const paragraph of article['content']) { %>
+      <p class="article-paragraph-normal">
+      <%= paragraph %>
     </p>
-    <p class="article-paragraph-bold">
+    <%} %>
+
+    
+    <!-- <p class="article-paragraph-bold">
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate
       voluptas vitae consequuntur autem non fuga, iste recusandae nostrum
       delectus praesentium?
-    </p>
-    <p class="article-paragraph-normal">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod error velit
-      quisquam voluptatum similique! Hic vero rem, et porro iste eum illum,
-      similique voluptatum quod sint quaerat, officiis dicta temporibus saepe
-      omnis sunt! Ipsum doloremque rerum ea voluptate repellat quisquam
-      accusamus, iusto, illum deleniti quis officia, quibusdam sequi! Laudantium
-      cum quaerat voluptatem asperiores quibusdam quas dignissimos nesciunt
-      voluptatibus, nisi aliquam explicabo numquam laborum tempore laboriosam
-      officiis reiciendis esse doloremque sapiente accusantium quis rem ratione?
-      Vitae, fuga voluptatem! Quidem voluptate adipisci autem dicta
-      necessitatibus alias accusamus molestiae incidunt quod illum debitis
-      voluptatem aperiam, ad maiores dolorum ipsa, corrupti recusandae quasi
-      vero?
-    </p>
-    <p class="article-paragraph-normal">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sit nulla
-      blanditiis eius odio asperiores!
-    </p>
-    <p class="article-paragraph-normal">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sit nulla
-      blanditiis eius odio asperiores!
-    </p>
-    <p class="article-paragraph-bold">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sit nulla
-      blanditiis eius odio asperiores!
-    </p>
-    <p class="article-paragraph-normal">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sit nulla
-      blanditiis eius odio asperiores!
-    </p>
-    <p class="article-paragraph-normal">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sit nulla
-      blanditiis eius odio asperiores!
-    </p>
+    </p> -->
+    
   </div>
+  <%}%>
+  <% } %>
 </div>
 <script>
   const image = document.querySelector(".article-image>img");
