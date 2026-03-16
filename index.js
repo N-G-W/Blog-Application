@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import {writeFile,stat,mkdir} from "node:fs";
+import {writeFile,readFileSync, mkdir} from "node:fs";
 import { Buffer } from "node:buffer";
 import path from "path";
 
@@ -27,11 +27,27 @@ const upload = multer({ storage: storage })
 var app = express();
 const port = 3000;
 
+var imagePathArrays = [];
+var articleContent = [];
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
+function readArticleData() {
+    try {
+        const data = readFileSync("./pseudo-persistance/text-db.txt", "utf8");
+        let objs = JSON.parse(data);
+        articleContent.push(objs);
+        return objs;
+    } catch {
+        console.log("OOpsies!");
+    }
+}
+
 app.get("/", (req, res) => {
+    readArticleData();
+    console.log("This is the article content array that is uploaded from the text file", articleContent);
     res.render("index.ejs");
 })
 
@@ -43,8 +59,6 @@ app.get("/read-blog", (req, res) => {
     res.render("reading.ejs");
 })
 
-var imagePathArrays = [];
-var articleContent = [];
 
 function articleFactory(id='',title = '', subtitle = '', content = '', imagePaths = '') {
     return {
@@ -60,7 +74,7 @@ app.post("/publish-blog", upload.single('file'), (req, res) => {
 
     imagePathArrays = [];
 
-    console.log(req.file, req.body);
+    // console.log(req.file, req.body);
     if (req.file !== undefined) {
         if (typeof (fileInformation) === "array") {
             fileInformation.forEach(element => {
@@ -86,7 +100,7 @@ app.post("/publish-blog", upload.single('file'), (req, res) => {
         };
         console.log("File has been saved successfully!");
     })
-    console.log(articleContent);
+    // console.log(articleContent);
     res.redirect("read-blog");
 })
 
