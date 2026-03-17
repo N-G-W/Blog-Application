@@ -69,6 +69,10 @@ input[type="search"]{
     border-bottom-left-radius: 1rem;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
 label.search-infront{
     display: inline-flex;
     justify-content: center;
