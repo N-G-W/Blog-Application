@@ -3,9 +3,9 @@
 <main class="main-container">
   <%- include("partials/panel.ejs") %>
 
+  <div class="main-content">
   <% if (locals.articleContent && locals.articleContent!==[]) { %>
    <%for (const article of articleContent) {%>
-  <div class="main-content">
     <div class="card-container">
       
       <a href=<%= `/read-blog?id=${article["articleID"]}` %>>
@@ -53,8 +53,12 @@
       </div>
       </a>
     </div>
+     <%}%>
+  <% } %>
   </div>
   <div class="recommendation-panel">
+    <% if (locals.articleContent && locals.articleContent!==[]) { %>
+   <%for (const article of articleContent) {%>
     <a href="<%= `/read-blog?id=${article["articleID"]}` %>">
 
       <div class="small-card">
@@ -72,9 +76,10 @@
         </div>
       </div>
     </a>
-  </div>
-  <%}%>
+    <%}%>
   <% } %>
+  </div>
+ 
 </main>
 
 <%- include("partials/footer.ejs") %>

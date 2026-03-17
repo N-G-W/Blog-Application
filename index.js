@@ -42,7 +42,7 @@ function readArticleData(req,res,next) {
         const data = readFileSync("./pseudo-persistance/text-db.txt", "utf8");
         let obj = JSON.parse(data);
         console.log("this is the obj",obj)
-        articleContent.push(obj[0]);
+        articleContent=obj;
         next();
     } catch {
         console.log("OOpsies!");
@@ -54,6 +54,7 @@ app.use(readArticleData);
 
 app.get("/", (req, res) => {
     res.locals.articleContent = articleContent;
+    console.log(articleContent);
     res.render("index.ejs");
 })
 
