@@ -42,7 +42,7 @@ function readArticleData(req,res,next) {
         const data = readFileSync("./pseudo-persistance/text-db.txt", "utf8");
         let obj = JSON.parse(data);
         console.log("this is the obj",obj)
-        articleContent.push(obj);
+        articleContent.push(obj[0]);
         next();
     } catch {
         console.log("OOpsies!");
@@ -64,19 +64,19 @@ app.get("/write-blog", (req, res) => {
 function checkArticleID(id) {
     for (const article of articleContent) {
             if (article['articleID'] == id) {
-                return [[article]];
+                return article;
             }
         }
     return -1;
 }
 app.get("/read-blog", (req, res) => {
     let paramID = req.query.id;
-    console.log("this is the paramid", paramID);
-    console.log(articleContent);
+    // console.log("this is the paramid", paramID);
+    // console.log(articleContent);
     let maybeArticle = checkArticleID(paramID);
     if (maybeArticle!==-1) {
         res.locals.articleContent = maybeArticle;
-        console.log(maybeArticle);
+        // console.log(maybeArticle);
         res.render("reading.ejs");
     }
     else {
@@ -106,7 +106,9 @@ app.post("/publish-blog", upload.single('file'), (req, res) => {
         path.normalize(path.relative("user-uploads", req.file['path'])),
     );
     
-    writeFile("./pseudo-persistance/text-db.txt", JSON.stringify(newArticle), 'utf8', (err) => {
+    app.use(readArticleData);
+    articleContent.push(newArticle);
+    writeFile("./pseudo-persistance/text-db.txt", JSON.stringify(articleContent), 'utf8', (err) => {
         if (err) {
             console.log(err);
             throw err;
@@ -115,7 +117,7 @@ app.post("/publish-blog", upload.single('file'), (req, res) => {
     })
     // console.log(articleContent);
     app.use(readArticleData);
-    res.redirect("read-blog");
+    res.redirect("/");
 })
 
 app.get("/edit", (req, res) => {
@@ -124,7 +126,7 @@ app.get("/edit", (req, res) => {
     let maybeArticle = checkArticleID(paramID);
     if (maybeArticle!==-1) {
         res.locals.existingArticle = maybeArticle[0][0];
-        console.log("This is the article bneing sent to be edited",maybeArticle[0][0]);
+        // console.log("This is the article bneing sent to be edited",maybeArticle[0][0]);
         res.render("edit-blog.ejs");
     }
     else {
@@ -134,7 +136,7 @@ app.get("/edit", (req, res) => {
 
 app.post("/republish-blog", (req, res) => {
     let paramID = req.query.id;
-    
+
 })
 
 app.delete("/delete", (req, res) => {
