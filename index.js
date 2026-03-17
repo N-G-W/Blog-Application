@@ -126,7 +126,7 @@ app.get("/edit", (req, res) => {
     // edit logic
     let maybeArticle = checkArticleID(paramID);
     if (maybeArticle!==-1) {
-        res.locals.existingArticle = maybeArticle[0][0];
+        res.locals.existingArticle = maybeArticle;
         // console.log("This is the article bneing sent to be edited",maybeArticle[0][0]);
         res.render("edit-blog.ejs");
     }

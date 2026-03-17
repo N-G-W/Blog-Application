@@ -28,14 +28,14 @@
           </div>
         </div>
         <div class="right">
-          <a href= <% `/edit?id = ${articleContent['articleID']}` %> >
+          <a href= <%= `/edit?id=${articleContent['articleID']}` %> >
           <div class="card-button">
             <img src="icons/pencil.svg" alt="icon" />
           </div></a>
           <div class="card-button">
             <img src="icons/bookmark-heart.svg" alt="icon" />
           </div>
-          <a href= <% `/delete?id = ${articleContent['articleID']}` %> >
+          <a href= <%= `/delete?id=${articleContent['articleID']}` %> >
           <div class="card-button">
             <img src="icons/trash3.svg" alt="icon" />
           </div></a>
