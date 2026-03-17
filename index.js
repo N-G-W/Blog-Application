@@ -115,7 +115,7 @@ app.post("/publish-blog", upload.single('file'), (req, res) => {
             throw err;
         };
         console.log("File has been saved successfully!");
-    })
+    });
     // console.log(articleContent);
     app.use(readArticleData);
     res.redirect("/");
@@ -140,10 +140,30 @@ app.post("/republish-blog", (req, res) => {
 
 })
 
-app.delete("/delete", (req, res) => {
+app.get("/delete", (req, res) => {
     let paramID = req.query.id;
     // delete logic
-    res.redirect("/");
+    app.use(readArticleData);
+    let poppedArticle;
+    poppedArticle = articleContent.filter((art) => {
+            if (paramID == art['articleID']) { return false }
+            else return true;
+    })
+    if (poppedArticle === articleContent) {
+        res.send("<h1>There doesn't seem to be an article of this ID</h1>") ;
+    }
+    else {
+        writeFile("./pseudo-persistance/text-db.txt", JSON.stringify(poppedArticle), 'utf8', (err) => {
+            if (err) {
+                console.log(err);
+                throw err;
+            };
+            console.log("File has been saved successfully!");
+        });
+        // console.log(articleContent);
+        app.use(readArticleData);
+            res.redirect("/");
+    }
 })
 
 
