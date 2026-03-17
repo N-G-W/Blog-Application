@@ -26,6 +26,7 @@
             <img src="icons/search.svg" alt="" />
           </label>
           <input
+            id="search"
             name="search"
             type="search"
             class="search"
@@ -60,5 +61,31 @@
         </div>
       </header>
     </div>
+    <script>
+      let searchBar = document.querySelector(".search-bar");
+      let labelInfront = searchBar.firstElementChild;
+      let searchBarItself = labelInfront.nextElementSibling;
+      console.log(
+        searchBar,
+        labelInfront,
+        "this is the search bar",
+        searchBarItself,
+      );
+      searchBarItself.addEventListener("click", function () {
+        // let searchBar = document.querySelector(".search-bar");
+        // let labelInfront = searchBar.firstElementChild;
+        labelInfront.style = "visibility: visible;";
+        labelInfront.nextElementSibling.style =
+          "border-top-left-radius: 0rem;border-bottom-left-radius: 0rem;";
+        // if (labelInfront.style.visibility == "visible") {
+        //   labelInfront.style = "visibility: hidden;";
+        // }
+      });
+      searchBarItself.addEventListener("focusout", () => {
+        labelInfront.style = "visibility: hidden;";
+        labelInfront.nextElementSibling.style =
+          "border-top-left-radius: 1rem;border-bottom-left-radius: 1rem;";
+      });
+    </script>
   </body>
 </html>
