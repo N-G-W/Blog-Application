@@ -1,1 +1,1 @@
-[]
+[{"articleID":732425516,"title":"Hello There.","subtitle":"This is a blog application written using Node, Express and Ejs.","content":["Take a look around. You might not be able to do much, but you can write articles, read them, edit and delete them.","Please dont delete other people's blogs.","Oh and you can upload images as well. Take a look at this beautiful image that I found."],"paths":"1773754632440-819727515\\1773754632440-819727515pexels-zak-mogel-2158251013-35758327.jpg"}]
