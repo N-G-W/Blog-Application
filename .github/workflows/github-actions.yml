@@ -1,0 +1,11 @@
+name: github-action-for-render
+on: [push]
+jobs:
+  update-deployment:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://blog-application-6kz3.onrender.com
+      steps:
+        - name: Report Deployment
+          run: echo "Linking to existing deployment"
