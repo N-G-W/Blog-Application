@@ -62,7 +62,7 @@ app.get("/write-blog", (req, res) => {
 })
 
 function checkArticleID(id) {
-    for (const article of articleContent[0]) {
+    for (const article of articleContent) {
             if (article['articleID'] == id) {
                 return [[article]];
             }
@@ -97,16 +97,16 @@ function articleFactory(id='',title = '', subtitle = '', content = '', imagePath
 }
 
 app.post("/publish-blog", upload.single('file'), (req, res) => {
-    articleContent.push(articleFactory(
+    let newArticle = articleFactory(
         Math.floor(Math.random() * 1e9),
         req.body['title'],
         req.body['subtitle'],
         req.body['content'],
         // req.file['path'],
         path.normalize(path.relative("user-uploads", req.file['path'])),
-    ))
+    );
     
-    writeFile("./pseudo-persistance/text-db.txt", JSON.stringify(articleContent), 'utf8', (err) => {
+    writeFile("./pseudo-persistance/text-db.txt", JSON.stringify(newArticle), 'utf8', (err) => {
         if (err) {
             console.log(err);
             throw err;
@@ -114,8 +114,35 @@ app.post("/publish-blog", upload.single('file'), (req, res) => {
         console.log("File has been saved successfully!");
     })
     // console.log(articleContent);
+    app.use(readArticleData);
     res.redirect("read-blog");
 })
+
+app.get("/edit", (req, res) => {
+    let paramID = req.query.id;
+    // edit logic
+    let maybeArticle = checkArticleID(paramID);
+    if (maybeArticle!==-1) {
+        res.locals.existingArticle = maybeArticle[0][0];
+        console.log("This is the article bneing sent to be edited",maybeArticle[0][0]);
+        res.render("edit-blog.ejs");
+    }
+    else {
+        res.send("<h1>There doesn't seem to be an article of this ID</h1>") ;
+    }
+})
+
+app.post("/republish-blog", (req, res) => {
+    let paramID = req.query.id;
+    
+})
+
+app.delete("/delete", (req, res) => {
+    let paramID = req.query.id;
+    // delete logic
+    res.redirect("/");
+})
+
 
 app.listen(port, () => {
     console.log(`Running the server on port : ${port}`);

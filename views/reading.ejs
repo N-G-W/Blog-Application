@@ -29,15 +29,17 @@
           </div>
         </div>
         <div class="right">
+          <a href= <% `/edit?id = ${article['articleID']}` %> >
           <div class="card-button">
-            <img src="icons/hand-thumbs-down.svg" alt="icon" />
-          </div>
+            <img src="icons/pencil.svg" alt="icon" />
+          </div></a>
           <div class="card-button">
             <img src="icons/bookmark-heart.svg" alt="icon" />
           </div>
+          <a href= <% `/delete?id = ${article['articleID']}` %> >
           <div class="card-button">
-            <img src="icons/three-dots.svg" alt="icon" />
-          </div>
+            <img src="icons/trash3.svg" alt="icon" />
+          </div></a>
         </div>
       </div>
     </div>
