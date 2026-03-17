@@ -1,13 +1,12 @@
 <%- include("partials/header.ejs") %> <%- include("partials/panel.ejs") %>
 <div class="article-container">
   <% if (locals.articleContent && locals.articleContent!==[]) { %>
-   <%for (const article of articleContent[0]) {%>
     <div class="article">
     <div class="article-heading">
-      <%= article['title'] %>
+      <%= articleContent['title'] %>
     </div>
     <div class="article-subheading">
-      <%= article['subtitle'] %>
+      <%= articleContent['subtitle'] %>
     </div>
     <div class="article-name-etc">
       <div class="pfp-name-container">
@@ -29,14 +28,14 @@
           </div>
         </div>
         <div class="right">
-          <a href= <% `/edit?id = ${article['articleID']}` %> >
+          <a href= <% `/edit?id = ${articleContent['articleID']}` %> >
           <div class="card-button">
             <img src="icons/pencil.svg" alt="icon" />
           </div></a>
           <div class="card-button">
             <img src="icons/bookmark-heart.svg" alt="icon" />
           </div>
-          <a href= <% `/delete?id = ${article['articleID']}` %> >
+          <a href= <% `/delete?id = ${articleContent['articleID']}` %> >
           <div class="card-button">
             <img src="icons/trash3.svg" alt="icon" />
           </div></a>
@@ -45,10 +44,10 @@
     </div>
 
     <div class="article-image">
-       <img src= <%= article['paths'] %> alt="image" class="image-contract" /> 
+       <img src= <%= articleContent['paths'] %> alt="image" class="image-contract" /> 
       
     </div>
-    <% for (const paragraph of article['content']) { %>
+    <% for (const paragraph of articleContent['content']) { %>
       <p class="article-paragraph-normal">
       <%= paragraph %>
     </p>
@@ -62,7 +61,6 @@
     </p> -->
     
   </div>
-  <%}%>
   <% } %>
 </div>
 <script>
